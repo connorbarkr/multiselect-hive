@@ -1,6 +1,6 @@
 # Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The `App.js` file contains a demo of the dropdown component in use, and the `Dropdown.jsx` file contains the actual dropdown code.
 
 ## Available Scripts
 
