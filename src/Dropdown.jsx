@@ -19,7 +19,7 @@ import useOutsideAlerter from "./useOutsideAlerter";
 const defaultStyle = {
     height: "40px",
     width: "300px",
-    margin: "0px 10px",
+    margin: "10px",
 };
 
 const Dropdown = forwardRef((props, ref) => {
@@ -244,7 +244,7 @@ const Dropdown = forwardRef((props, ref) => {
             <div
                 // dynamically translate the menu based on the dropdown height
                 style={{
-                    transform: `translateY(calc(${props.style.height} + 5px))`,
+                    marginTop: `calc(${props.style.height} + 5px)`,
                 }}
                 onScroll={handleScroll}
                 className={`dropdown-options ${open ? "open" : "closed"}`}
@@ -333,7 +333,9 @@ const Dropdown = forwardRef((props, ref) => {
                 <span className="icons">
                     <Clear
                         className={`clear ${
-                            sanitizedSelected.length > 0 ? "active" : "inactive"
+                            sanitizedSelected.length > 0 && !props.disabled
+                                ? "active"
+                                : "inactive"
                         }`}
                         onClick={deselectAll}
                     />

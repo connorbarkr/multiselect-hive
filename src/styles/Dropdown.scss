@@ -1,174 +1,180 @@
-@import './_variables.scss';
+@import "./_variables.scss";
 
 .dropdown {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	padding: 0px 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px;
 
-	&-selection {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-		height: 100%;
-		width: 100%;
-		border: 2px solid $primary;
-		background-color: white;
-		border-radius: 5px;
-		padding: 0px 10px;
-		z-index: 4;
+    &-selection {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+        border: 2px solid $primary;
+        background-color: white;
+        border-radius: 5px;
+        padding: 0px 10px;
 
-		.dropdown-label {
-			width: 90%;
-			text-align: left;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-			overflow-x: hidden;
-		}
+        .dropdown-label {
+            font-family: "Roboto", sans-serif;
+            width: 90%;
+            text-align: left;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow-x: hidden;
+        }
 
-		.placeholder {
-			color: grey;
-			user-select: none;
-		}
+        .placeholder {
+            font-family: "Roboto", sans-serif;
+            color: grey;
+            user-select: none;
+        }
 
-		.icons {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			height: 50%;
-			padding-left: 5px;
+        .icons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 50%;
+            padding-left: 5px;
 
-			.clear {
-				margin-right: 7px;
-				border-right: 1px solid gray;
-				transition: 0.1s;
-			}
+            .clear {
+                margin-right: 7px;
+                border-right: 1px solid gray;
+                transition: 0.1s;
+            }
 
-			.expand {
-				transition: 0.25s;
-				cursor: pointer;
-			}
-		
-			.flipped {
-				transform: rotate(-180deg);
-			}
+            .expand {
+                transition: 0.25s;
+                cursor: pointer;
+            }
 
-			.active {
-				padding-right: 7px;
-				opacity: 1;
-				pointer-events: all;
-				cursor: pointer;
-			}
+            .flipped {
+                transform: rotate(-180deg);
+            }
 
-			.inactive {
-				padding: 0px;
-				opacity: 0;
-				pointer-events: none;
-				cursor: none;
-			}
-		}
-	}
+            .active {
+                padding-right: 7px;
+                opacity: 1;
+                pointer-events: all;
+                cursor: pointer;
+            }
 
-	.disabled {
-		color: #404040;
-		background-color: rgba(32, 32, 32, 0.1);
-		border: 1px solid #404040;
-		pointer-events: none;
+            .inactive {
+                padding: 0px;
+                opacity: 0;
+                pointer-events: none;
+                cursor: none;
+            }
+        }
+    }
 
-		.placeholder {
-			color: #404040;
-		}
-	}
+    .disabled {
+        color: #404040;
+        background-color: rgba(32, 32, 32, 0.1);
+        border: 2px solid #404040;
+        pointer-events: none;
 
-	.error {
-		color: red;
-		border: 2px solid red;
-		pointer-events: none;
-		background-color: rgba(255, 0, 0, 0.1);
+        .placeholder {
+            font-family: "Roboto", sans-serif;
+            color: #404040;
+        }
+    }
 
-		.placeholder {
-			color: red;
-		}
+    .error {
+        color: red;
+        border: 2px solid red;
+        pointer-events: none;
+        background-color: rgba(255, 0, 0, 0.1);
 
-		.icons {
-			display: none;
-		}
-	}
-	
-	&-options {
-		position: absolute;
-		display: block;
-		width: 100%;
-		max-height: 300px;
-		overflow-x: hidden;
-		overflow-y: auto;
-		transition: 0.2s;
-		box-shadow: 0px 3px 24px rgb(65 65 90 / 12%);
-		border-radius: 5px;
-		z-index: 1;
-		
-		.option {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			padding: 15px;
-			cursor: pointer;
+        .placeholder {
+            font-family: "Roboto", sans-serif;
+            color: red;
+        }
 
-			&-empty {
-				display: flex;
-				flex-direction: row;
-				align-items: center;
-				padding: 15px;
-				pointer-events: none;
+        .icons {
+            display: none;
+        }
+    }
 
-				.label {
-					font-style: italic;
-					color: gray;
-					user-select: none;
-				}
-			}
+    &-options {
+        position: absolute;
+        width: 100%;
+        max-height: 300px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transition: 0.2s;
+        box-shadow: 0px 3px 24px rgb(65 65 90 / 12%);
+        border-radius: 5px;
+        background-color: white;
+        z-index: 1;
 
-			.checkbox {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				margin-right: 10px;
-				input[type="checkbox"] {
-					appearance: none;
-				}
+        .option {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 15px;
+            background-color: white;
+            cursor: pointer;
 
-				.checked {
-					color: $primary;
-				}
-			}
+            &-empty {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 15px;
+                pointer-events: none;
 
-			.label {
-				overflow-x: hidden;
-				text-align: left;
-				text-overflow: ellipsis;
-				white-space: nowrap;
-			}
-			
-			&:hover {
-				background-color: $focus;
-				color: $primary-text;
-			}
-		}
+                .label {
+                    font-family: "Roboto", sans-serif;
+                    font-style: italic;
+                    color: gray;
+                    user-select: none;
+                }
+            }
 
-		.selected {
-			background-color: $selected;
-		}
-	}
+            .checkbox {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 10px;
+                input[type="checkbox"] {
+                    appearance: none;
+                }
 
-	.closed {
-		opacity: 0;
-		pointer-events: none;
-		transform: translateY(-10px);
-	}
+                .checked {
+                    color: $primary;
+                }
+            }
 
-	.open {
-		opacity: 1;
-		pointer-events: all;
-	}
+            .label {
+                font-family: "Roboto", sans-serif;
+                overflow-x: hidden;
+                text-align: left;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            &:hover {
+                background-color: $focus;
+                color: $primary-text;
+            }
+        }
+
+        .selected {
+            background-color: $selected;
+        }
+    }
+
+    .closed {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+    }
+
+    .open {
+        opacity: 1;
+        pointer-events: all;
+    }
 }

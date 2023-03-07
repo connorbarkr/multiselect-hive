@@ -1,16 +1,59 @@
+@import "./variables";
+
 .demo-container {
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .demo-header {
-  background-color: white;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+    background-color: $primary;
+    width: 100vw;
+    height: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    .label {
+        font-family: "Roboto", sans-serif;
+        font-weight: 600;
+        font-size: 2em;
+        color: white;
+        margin-left: 1em;
+    }
 }
 
-.single {
-	width: 500px;
+.demo-section {
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60vw;
+
+    p {
+        font-family: "Roboto", sans-serif;
+        font-size: 1.2em;
+        text-align: start;
+    }
+
+    input {
+        font-family: "Roboto", sans-serif;
+        font-size: 1.2em;
+        margin: 0px 10px;
+    }
+
+    button {
+        margin: 10px;
+    }
+
+    .components {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
 }
