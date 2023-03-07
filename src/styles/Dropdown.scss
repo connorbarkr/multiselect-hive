@@ -1,0 +1,174 @@
+@import './_variables.scss';
+
+.dropdown {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: 0px 10px;
+
+	&-selection {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		height: 100%;
+		width: 100%;
+		border: 2px solid $primary;
+		background-color: white;
+		border-radius: 5px;
+		padding: 0px 10px;
+		z-index: 4;
+
+		.dropdown-label {
+			width: 90%;
+			text-align: left;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow-x: hidden;
+		}
+
+		.placeholder {
+			color: grey;
+			user-select: none;
+		}
+
+		.icons {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			height: 50%;
+			padding-left: 5px;
+
+			.clear {
+				margin-right: 7px;
+				border-right: 1px solid gray;
+				transition: 0.1s;
+			}
+
+			.expand {
+				transition: 0.25s;
+				cursor: pointer;
+			}
+		
+			.flipped {
+				transform: rotate(-180deg);
+			}
+
+			.active {
+				padding-right: 7px;
+				opacity: 1;
+				pointer-events: all;
+				cursor: pointer;
+			}
+
+			.inactive {
+				padding: 0px;
+				opacity: 0;
+				pointer-events: none;
+				cursor: none;
+			}
+		}
+	}
+
+	.disabled {
+		color: #404040;
+		background-color: rgba(32, 32, 32, 0.1);
+		border: 1px solid #404040;
+		pointer-events: none;
+
+		.placeholder {
+			color: #404040;
+		}
+	}
+
+	.error {
+		color: red;
+		border: 2px solid red;
+		pointer-events: none;
+		background-color: rgba(255, 0, 0, 0.1);
+
+		.placeholder {
+			color: red;
+		}
+
+		.icons {
+			display: none;
+		}
+	}
+	
+	&-options {
+		position: absolute;
+		display: block;
+		width: 100%;
+		max-height: 300px;
+		overflow-x: hidden;
+		overflow-y: auto;
+		transition: 0.2s;
+		box-shadow: 0px 3px 24px rgb(65 65 90 / 12%);
+		border-radius: 5px;
+		z-index: 1;
+		
+		.option {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			padding: 15px;
+			cursor: pointer;
+
+			&-empty {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				padding: 15px;
+				pointer-events: none;
+
+				.label {
+					font-style: italic;
+					color: gray;
+					user-select: none;
+				}
+			}
+
+			.checkbox {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-right: 10px;
+				input[type="checkbox"] {
+					appearance: none;
+				}
+
+				.checked {
+					color: $primary;
+				}
+			}
+
+			.label {
+				overflow-x: hidden;
+				text-align: left;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			
+			&:hover {
+				background-color: $focus;
+				color: $primary-text;
+			}
+		}
+
+		.selected {
+			background-color: $selected;
+		}
+	}
+
+	.closed {
+		opacity: 0;
+		pointer-events: none;
+		transform: translateY(-10px);
+	}
+
+	.open {
+		opacity: 1;
+		pointer-events: all;
+	}
+}
