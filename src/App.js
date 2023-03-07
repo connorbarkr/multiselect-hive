@@ -133,7 +133,14 @@ const App = () => {
                     clicking 'select all', but it does successfully run within a
                     few seconds. I considered this good enough, as if you have
                     over 1,000,000 options in a dropdown there is probably a
-                    better way to manipulate the data.
+                    better way to manipulate the data. I used lazy loading to
+                    improve the performance of the dropdown; the options load in
+                    batches of 50, although this number can be overriden with a
+                    prop. Note that 'select all' and 'clear' will still select
+                    and clear all of the options, not just the ones that are
+                    currently rendered. Error checking will also work on all
+                    options, not just those visible. The number of rendered
+                    options resets when the dropdown is closed.
                 </p>
                 <div className="components">
                     <p>Currently selected: {values_2.length} options</p>

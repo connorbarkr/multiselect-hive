@@ -8,13 +8,13 @@ import {
 } from "react";
 import PropTypes from "prop-types";
 
-import { ReactComponent as Expand } from "./chevron-down.svg";
-import { ReactComponent as Clear } from "./x.svg";
-import { ReactComponent as Unchecked } from "./square.svg";
-import { ReactComponent as Checked } from "./check-square-fill.svg";
+import { ReactComponent as Expand } from "./assets/chevron-down.svg";
+import { ReactComponent as Clear } from "./assets/x.svg";
+import { ReactComponent as Unchecked } from "./assets/square.svg";
+import { ReactComponent as Checked } from "./assets/check-square-fill.svg";
 
 import "./styles/Dropdown.scss";
-import useOutsideAlerter from "./useOutsideAlerter";
+import useOutsideAlerter from "./hooks/useOutsideAlerter";
 
 const defaultStyle = {
     height: "40px",
@@ -231,7 +231,7 @@ const Dropdown = forwardRef((props, ref) => {
         );
     }, [sanitizedSelected, props.placeholder, props.multiselect, error]);
 
-    // Memoize the disabled and error styles based on the props, options length, and error state
+    // Memoize the disabled and error styles based on the disabled prop and current error state
     const disabledOrError = useMemo(() => {
         if (error) return "error";
         if (props.disabled) return "disabled";
@@ -352,14 +352,25 @@ const Dropdown = forwardRef((props, ref) => {
 });
 
 Dropdown.propTypes = {
+    // The array of options, which should be objects in the form of {id, label, value}
     options: PropTypes.array.isRequired,
+    // A function which handles updating the selected value(s), passed as either an object or
+    // an array depending on what type of multiselect it is
     onChange: PropTypes.func.isRequired,
+    // An array of selected options
+    selected: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
+        .isRequired,
+    // The dropdown style. Will override the default style
     style: PropTypes.object,
-    selected: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    // Whether the dropdown is a multiselect
     multiselect: PropTypes.bool,
+    // Override the default placeholder
     placeholder: PropTypes.string,
+    // Whether the dropdown should close when an option is selected
     closeOnClick: PropTypes.bool,
+    // Whether the dropdown is disabled
     disabled: PropTypes.bool,
+    // How many new options to render when the menu is scrolled to the bottom
     batchSize: PropTypes.number,
 };
 
