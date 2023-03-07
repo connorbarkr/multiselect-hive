@@ -263,15 +263,10 @@ const Dropdown = forwardRef((props, ref) => {
                         onClick={selectAll}
                     >
                         <span className="checkbox">
-                            <input
-                                type="checkbox"
-                                checked={allSelected}
-                                onChange={selectAll}
-                            />
                             {allSelected ? (
                                 <Checked className="checked" />
                             ) : (
-                                <Unchecked className="unchecked" />
+                                <Unchecked />
                             )}
                         </span>
                         <span className="label">{"Select all"}</span>
@@ -290,11 +285,6 @@ const Dropdown = forwardRef((props, ref) => {
                         >
                             {props.multiselect ? (
                                 <span className="checkbox">
-                                    <input
-                                        type="checkbox"
-                                        checked={option.selected}
-                                        onChange={handleSelect(option.data)}
-                                    />
                                     {option.selected ? (
                                         <Checked className="checked" />
                                     ) : (
